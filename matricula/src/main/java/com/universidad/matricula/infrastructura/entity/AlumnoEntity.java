@@ -1,5 +1,6 @@
 package com.universidad.matricula.infrastructura.entity;
 
+import com.universidad.matricula.infrastructura.Inscripcion;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,5 +28,9 @@ public class AlumnoEntity {
     @Column(name = "fecha_nacimiento")
     private LocalDate fechaNacimiento;
     private String genero;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "inscripcion_id")
+    private Inscripcion inscripcionId;
+
 
 }
