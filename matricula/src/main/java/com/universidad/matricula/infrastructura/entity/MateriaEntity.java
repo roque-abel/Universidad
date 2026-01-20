@@ -17,5 +17,7 @@ public class MateriaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nombre;
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "plan_estudio")
+    private PlanEstudioEntity planEstudioEntity;
 }

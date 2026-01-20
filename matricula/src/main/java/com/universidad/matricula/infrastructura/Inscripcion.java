@@ -1,6 +1,8 @@
 package com.universidad.matricula.infrastructura;
 
 import com.universidad.matricula.infrastructura.entity.AlumnoEntity;
+import com.universidad.matricula.infrastructura.entity.CarreraEntity;
+import com.universidad.matricula.infrastructura.entity.PeriodoAcademicoEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,8 +26,14 @@ public class Inscripcion {
     @Column(name = "fecha_inscripcion")
     private LocalDate fechaInscripcion;
     private Boolean estado;
-    private Double calificacion;
-    @OneToMany(mappedBy = "inscripcion", cascade = CascadeType.ALL)
-    private List<AlumnoEntity> alumnos = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "alumno_id")
+    private AlumnoEntity alumno ;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "carrera_id")
+    private CarreraEntity carrera;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "periodo_academico_id")
+    private PeriodoAcademicoEntity periodoAcademico;
 
 }

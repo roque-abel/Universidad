@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
+
 @Entity
 @Builder
 @Data
@@ -24,11 +26,6 @@ public class PlanEstudioEntity {
     @Column(nullable = false, unique = true)
     private String codigo; // IS-2025
 
-    @Column(name = "fecha_inicio", nullable = false)
-    private LocalDate fechaInicio;
-
-    @Column(name = "fecha_fin")
-    private LocalDate fechaFin;
-
-    private boolean EstadoPlan;
+    @OneToMany(mappedBy = "pan_estudio", cascade = CascadeType.ALL)
+    private List<MateriaEntity> materias;
 }

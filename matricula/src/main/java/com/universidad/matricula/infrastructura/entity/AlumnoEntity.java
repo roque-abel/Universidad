@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Builder
@@ -28,9 +29,8 @@ public class AlumnoEntity {
     @Column(name = "fecha_nacimiento")
     private LocalDate fechaNacimiento;
     private String genero;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "inscripcion_id")
-    private Inscripcion inscripcionId;
+    @OneToMany(mappedBy = "alumno", cascade = CascadeType.ALL)
+    private List<Inscripcion> inscripcion;
 
 
 }
