@@ -1,5 +1,6 @@
 package com.universidad.matricula.infrastructura.entity;
 
+import com.universidad.matricula.infrastructura.Inscripcion;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,6 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
+
 @Entity
 @Builder
 @Data
@@ -23,4 +26,6 @@ public class PeriodoAcademicoEntity {
     @Column(name = "fecha_fin")
     private LocalDate fechaFin;
     private boolean activo;
+    @OneToMany(mappedBy = "periodo_academico", cascade = CascadeType.ALL)
+    private List<Inscripcion> inscripciones;
 }
