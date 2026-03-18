@@ -1,4 +1,4 @@
-package com.universidad.matricula.infrastructura;
+package com.universidad.matricula.infrastructura.enums;
 
 import java.util.Objects;
 
