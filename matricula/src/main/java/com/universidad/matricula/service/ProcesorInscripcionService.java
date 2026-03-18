@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 
@@ -18,6 +19,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @Slf4j
+@Service
 public class ProcesorInscripcionService {
     @Autowired
     private InscripcionRepository inscripcionRepository;
@@ -37,8 +39,9 @@ public class ProcesorInscripcionService {
             String matricula = this.httpProsesorGateway.generarMatricula(dto);
 
 
-        
+        InscripicionModel model = this.inscripcionRepository.registrarAlumno(dto, matricula);
 
+        return model;
 
     }
 }
