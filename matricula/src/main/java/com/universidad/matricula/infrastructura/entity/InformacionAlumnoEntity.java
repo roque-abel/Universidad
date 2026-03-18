@@ -1,6 +1,5 @@
 package com.universidad.matricula.infrastructura.entity;
 
-import com.universidad.matricula.infrastructura.Inscripcion;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,14 +9,13 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 import java.util.List;
 
-@Entity
-@Builder
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "alumnos")
-public class AlumnoEntity {
-    @Id
+@Entity
+@Table(name = "informacion-alumnos")
+public class InformacionAlumnoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAlumno;
     private String nombre;
@@ -25,12 +23,12 @@ public class AlumnoEntity {
     private String apellidoPaterno;
     @Column(name = "apellido_materno")
     private String apellidoMaterno;
+    private String genero;
     private String curp;
+    @Column(name = "direccion_domicilio")
+    private String direccionDomicilio;
+    private String nss;
     @Column(name = "fecha_nacimiento")
     private LocalDate fechaNacimiento;
-    private String genero;
-    @OneToMany(mappedBy = "alumno", cascade = CascadeType.ALL)
-    private List<Inscripcion> inscripcion;
-
-
+    private String matricula;
 }

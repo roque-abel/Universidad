@@ -1,6 +1,5 @@
-package com.universidad.matricula.service;
+package com.universidad.matricula.service.dto;
 
-import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,11 +11,10 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PlanEstudioDto {
+public class PeriodoAcademicoDto {
     private Long id;
-    private String nombre; // Ej: Ingeniería en Sistemas
-    private String codigo; // IS-2025
+    private String nombre; // Ej: "2025-1"
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
-    private boolean EstadoPlan;
+    private boolean activo;
 }

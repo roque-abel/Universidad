@@ -1,4 +1,4 @@
-package com.universidad.matricula.service;
+package com.universidad.matricula.service.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class MateriaDto {
+public class CarreraDto {
     private Integer id;
     private String nombre;
+    private String modalidad;
 }
